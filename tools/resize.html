@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brickcraft - Resource Pack Resizer</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="css/resize-tool.css">
+
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">
+            <img src="../images/nav-logo.png" alt="Brickcraft Logo" class="nav-logo">
+        </a>
+    </nav>
+    <main>
+        <div class="hero small">
+            <div class="hero-image">
+                <img src="../images/hero/download.webp" alt="Resource Pack Resizer Hero">
+            </div>
+            <div class="hero-content">
+                <h1>Resource Pack Resizer</h1>
+                <p>Resize your Minecraft resource packs to improve performance</p>
+            </div>
+        </div>
+        <div id="content">
+            <div class="tool-section">
+                <div class="controls">
+                    <div class="slider-container" data-tooltip="Adjust the scale percentage">
+                        <label for="scaleSlider">Scale: <span id="scaleValue">50</span>%</label>
+                        <input type="range" id="scaleSlider" min="10" max="200" value="50" step="5">
+                    </div>
+                    <div class="scale-presets">
+                        <button class="button" onclick="setScale(25)">25%</button>
+                        <button class="button" onclick="setScale(50)">50%</button>
+                        <button class="button" onclick="setScale(75)">75%</button>
+                        <button class="button" onclick="setScale(100)">100%</button>
+                    </div>
+                    <button id="processBtn" class="button primary" disabled>Start Processing</button>
+                </div>
+
+                <div id="mainContainer">
+                    <div id="dropzone" class="dropzone-area">
+                        <div class="dropzone-content">
+                            <div class="upload-icon-large">📁</div>
+                            <h3>Drop your resource pack ZIP file here</h3>
+                            <p>or click to browse files</p>
+                            <input type="file" id="fileInput" accept=".zip" style="display: none;">
+                            <div class="file-info">
+                                <small>Supported: .zip files containing Minecraft resource packs</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="fileStatus" class="file-status">
+                        <div class="selected-file">
+                            <span id="fileName"></span>
+                            <button id="clearFile" class="clear-btn">×</button>
+                        </div>
+                    </div>
+
+                    <div id="progressSection" class="progress-section">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <div id="progressText" class="progress-text">Initializing...</div>
+                        <div id="processLog" class="process-log"></div>
+                    </div>
+
+                    <div id="results" class="results">
+                        <h3>Processing Complete!</h3>
+                        <div id="resultStats" class="result-stats"></div>
+                        <div class="button-container">
+                            <button id="downloadBtn" class="button primary">Download Resized Pack</button>
+                            <button id="resetBtn" class="button">Process Another Pack</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- Footer will be loaded in -->
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

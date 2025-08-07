@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brickcraft - Instructions</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">
+            <img src="images/nav-logo.png" alt="Brickcraft Logo" class="nav-logo">
+        </a>
+    </nav>
+    <main>
+        <div class="hero">
+            <div class="hero-image">
+                <img src="images/hero/instructions.webp" alt="Instructions Hero">
+            </div>
+            <div class="hero-content">
+                <h1>Installation and Settings</h1>
+                <p>Follow these simple steps to get started with Brickcraft</p>
+                <div class="skip">
+                    <a href="#installation" class="button">Installation</a>
+                    <a href="#settings" class="button">Settings</a>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="instructions-content">
+                <div class="instructions-section" id="installation">
+                    <h2>Installation</h2>
+
+                    <div id="load-instructions">Loading...</div>
+
+                    <!-- <div class="subsection">
+                        <h3 class="subheading">Requirements</h3>
+                        <p>Make sure your device has a dedicated GPU (Nvidia / AMD cards) to be able to run the
+                            pack.<br>Running the pack with Intel integrated GPU may crash your Minecraft due to the
+                            complexity of the 3D Models.<br>It is recommended to use either <span
+                                class="keyword">Optifine</span> or <span class="keyword">Iris</span> to improve
+                            performance.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subheading">Compatibility</h3>
+                        <p>Brickcraft is playable in <span class="keyword">every version after 1.13</span>. If you encounter a compatibility issue
+                            message in any version after that one, I suggest you to just ignore it. Please report any
+                            critical issues on my <a class="discord" href="https://discord.gg/uBhFaBG">official Discord
+                                server</a>.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subheading">Installation Steps</h3>
+                        <ol>
+                            <li>Download the resource pack from the <a href="download.html">Download</a> page.</li>
+                            <li>Open Minecraft and go to the Options menu.</li>
+                            <li>Click on Resource Packs and then on Open Resource Pack Folder.</li>
+                            <li>Move the downloaded file into the folder that just opened.</li>
+                            <li>Go back to Minecraft and activate the pack in the Resource Packs menu.</li>
+                        </ol>
+                    </div> -->
+                </div>
+            </div>
+            <div class="instructions-content">
+                <div class="instructions-section" id="settings">
+                    <h2>Settings</h2>
+
+                    <div class="subsection">
+                        <h3 class="subheading">Fabulously Optimized and Iris Settings</h3>
+                        <p>Having the right settings plays a big role in performance and avoiding visual bugs. Minecraft
+                            is a pretty old game, and Brickcraft comes along with features Mojang never accounted for. I
+                            hope you are okay with tweaking some stuff here and there 😉!</p>
+
+                        <div class="setting-keys">
+                            <div class="setting-key important">
+                                <div class="colour"></div>
+                                <span>Very Important Settings</span>
+                            </div>
+                            <div class="setting-key recommended">
+                                <div class="colour"></div>
+                                <span>Recommended Settings</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-grid">
+                            <div class="setting" data-image="images/settings/general.webp">
+                                <img src="images/settings/general.webp" alt="General">
+                                <span>General</span>
+                            </div>
+                            <div class="setting" data-image="images/settings/quality.webp">
+                                <img src="images/settings/quality.webp" alt="Quality">
+                                <span>Quality</span>
+                            </div>
+                            <div class="setting" data-image="images/settings/performance.webp">
+                                <img src="images/settings/performance.webp" alt="Performance">
+                                <span>Performance</span>
+                            </div>
+                            <div class="setting" data-image="images/settings/advanced.webp">
+                                <img src="images/settings/advanced.webp" alt="Advanced">
+                                <span>Advanced</span>
+                            </div>
+                            <div class="setting" data-image="images/settings/culling.webp">
+                                <img src="images/settings/culling.webp" alt="Culling">
+                                <span>Culling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subheading">Shader Settings</h3>
+                        <p>The correct settings for the right shaders are the absolute most important! Never forget to
+                            activate Normal Mapping when using Brickcraft Premium or Extreme Edition!</p>
+
+                        <!-- two buttons acting as a switch, one for Lux Shader and one for Kappa Shader, which hide/show their respective setting sections -->
+                        <div class="shader-switch">
+                            <button class="active" data-shader="lux">Lux Shader</button>
+                            <button data-shader="kappa">Kappa Shader</button>
+                        </div>
+
+                        <div class="shader-settings">
+                            <!-- <div class="shader-setting lux active">
+                                <ol>
+                                    <li>Camera Settings:
+                                        <ol>
+                                            <li>Depth Of Field » ON</li>
+                                            <li>Dirty Lens » ON</li>
+                                            <li>Auto Exposure » ON</li>
+                                        </ol>
+                                    </li>
+                                    <li>Surface Settings:
+                                        <ol>
+                                            <li>Material Format » LabPBR 1.3</li>
+                                            <li class="downArrow">Normal Map Config:
+                                                <ol>
+                                                    <li>Parallax Occlusion Mapping » OFF</li>
+                                                    <li>Directional Lightmap » ON</li>
+                                                </ol>
+                                            </li>
+                                            <li class="downArrow">Material Reflection Config:
+                                                <ol>
+                                                    <li>Reflections » ON</li>
+                                                    <li>Force Reflection » ON</li>
+                                                    <li>Translucent Reflections » ON</li>
+                                                    <li>Specular Reflection » ON</li>
+                                                    <li>Rough Reflection » ON</li>
+                                                    <li>Previous Frame Reflection » ON</li>
+                                                    <li>Rain Reflection » ON</li>
+                                                </ol>
+                                            </li>
+                                            <li class="downArrow">Surface Waving:
+                                                <ol>
+                                                    <li>Grass » OFF</li>
+                                                    <li>Plants » OFF</li>
+                                                    <li>Leaves » OFF</li>
+                                                    <li>Lilypad » OFF</li>
+                                                    <li>Lantern » OFF</li>
+                                                    <li>Crops » OFF</li>
+                                                    <li>Tall Plants » OFF</li>
+                                                    <li>Vines » OFF</li>
+                                                    <li>Fire » OFF</li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li>Post Processing:
+                                        <ol>
+                                            <li>Anti-aliasing » TAA</li>
+                                            <li class="downArrow">Color Grading:
+                                                <ol>
+                                                    <li>Color Grading » ON</li>
+                                                    <li>Saturation » 1.10</li>
+                                                    <li>Vibrance » 1.30</li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </div> -->
+                            <div class="shader-setting lux active">
+                                <!-- will be loaded in markdown -->
+                                <div id="load-lux">Loading...</div>
+                            </div>
+                            <div class="shader-setting kappa">
+                                <!-- will be loaded in markdown -->
+                                <div id="load-kappa">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="image-viewer">
+        <img src="" alt="">
+    </div>
+    <footer>
+        <!-- Footer will be loaded in -->
+    </footer>
+
+    <script src="js/markdown-loader.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Shader toggle functionality
+        document.querySelectorAll('.shader-switch button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and settings
+                document.querySelectorAll('.shader-switch button, .shader-settings > div').forEach(el => {
+                    el.classList.remove('active');
+                });
+
+                // Add active class to clicked button and corresponding settings
+                button.classList.add('active');
+                document.querySelector(`.shader-settings .${button.dataset.shader}`).classList.add('active');
+            });
+        });
+
+
+        // load the markdown content for the Kappa shader settings
+        loadMarkdownContent("/data/installation-instructions.md", 'load-instructions');
+        loadMarkdownContent("/data/shader_settings/lux.md", 'load-lux');
+        loadMarkdownContent("/data/shader_settings/kappa.md", 'load-kappa');
+    </script>
+</body>
+
+</html>
