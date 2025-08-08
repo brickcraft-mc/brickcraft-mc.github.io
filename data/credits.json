@@ -1,0 +1,136 @@
+{
+    "title": "The People Behind Brickcraft",
+    "description": "A lot of people have come together to make Brickcraft what it is today, from directly working on the pack, to providing support and feedback. Here are some of the key contributors:",
+    "contributors": [
+        {
+            "name": "AlexTestria",
+            "role": "Original Creator & Founder",
+            "image": "alextestria.webp",
+            "description": "The original owner and creator of Brickcraft, who laid the foundation for the pack and its vision.",
+            "links": [
+                {
+                    "name": "Official Website",
+                    "url": "https://brickcraft.de/"
+                },
+                {
+                    "name": "Patreon",
+                    "url": "https://www.patreon.com/c/alextestria/home"
+                }
+            ]
+        },
+        {
+            "name": "AleinaTestria",
+            "role": "Current Owner",
+            "image": "aleinatestria.webp",
+            "description": "The current owner of Brickcraft, continuing the legacy of AlexTestria and ensuring the pack continues to evolve and improve.",
+            "links": [
+                {
+                    "name": "Official Website",
+                    "url": "https://brickcraft.de/"
+                },
+                {
+                    "name": "Patreon",
+                    "url": "https://www.patreon.com/c/alextestria/home"
+                }
+            ]
+        },
+        {
+            "name": "Inferno31415",
+            "role": "Pack Maintainer & Artist",
+            "image": "inferno31415.webp",
+            "description": "A long-time pack maintainer and creator of many of the mobs and models found in Brickcraft.",
+            "links": [
+                {
+                    "name": "Modrinth",
+                    "url": "https://modrinth.com/user/Inferno31415"
+                },
+                {
+                    "name": "Patreon",
+                    "url": "https://www.patreon.com/inferno31415"
+                },
+                {
+                    "name": "YouTube",
+                    "url": "https://www.youtube.com/@Inferno31415MC"
+                }
+            ]
+        },
+        {
+            "name": "Mr.AAA",
+            "role": "Lead Creator",
+            "image": "mr.aaa.webp",
+            "description": "The current lead creator of Brickcraft, who has been working on the pack since 2025.",
+            "links": [
+                {
+                    "name": "YouTube",
+                    "url": "https://www.youtube.com/@novagraphics1281"
+                }
+            ]
+        },
+        {
+            "name": "Blockerlocker",
+            "role": "Audio",
+            "image": "blockerlocker.webp",
+            "description": "Creator of the iconic brick sounds for clicking buttons, stepping on blocks, taking damage, and more.",
+            "links": [
+                {
+                    "name": "Modrinth",
+                    "url": "https://modrinth.com/user/Blockerlocker"
+                },
+                {
+                    "name": "YouTube",
+                    "url": "https://www.youtube.com/@BlockerLockerYT"
+                }
+            ]
+        },
+        {
+            "name": "HumorlessHank",
+            "role": "Artist",
+            "image": "haubna.webp",
+            "description": "Creator of many of the passive mobs.",
+            "links": [
+                {
+                    "name": "Planet Minecraft",
+                    "url": "https://www.planetminecraft.com/member/humorlesshank/"
+                }
+            ]
+        },
+        {
+            "name": "FabulousFox",
+            "role": "Artist",
+            "image": "fabulousfox.webp",
+            "description": "Created the stud versions of the Minecraft paintings.",
+            "links": []
+        },
+        {
+            "name": "Tec",
+            "role": "Artist",
+            "image": "tec.webp",
+            "description": "Created the animated fire blocks.",
+            "links": [
+                {
+                    "name": "Modrinth",
+                    "url": "https://modrinth.com/user/Tec"
+                }
+            ]
+        },
+        {
+            "name": "Nolram",
+            "role": "Community Moderator",
+            "image": "nolram.webp",
+            "description": "Community moderator and supporter, helping maintain the Brickcraft community and providing ongoing support to users.",
+            "links": []
+        },
+        {
+            "name": "Bane",
+            "role": "Community Developer",
+            "image": "bane.webp",
+            "description": "Developer of this website and related tools.",
+            "links": [
+                {
+                    "name": "GitHub",
+                    "url": "https://github.com"
+                }
+            ]
+        }
+    ]
+}
