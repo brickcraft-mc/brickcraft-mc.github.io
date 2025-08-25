@@ -1,0 +1,102 @@
+{
+    "alternatives": [
+        {
+            "name": "Plasticraft",
+            "creators": [
+                {
+                    "name": "Inferno31415",
+                    "image": "inferno31415.webp",
+                    "url": "https://modrinth.com/user/Inferno31415"
+                }
+            ],
+            "image": "plasticraft.webp",
+            "logo": "plasticraft.webp",
+            "description": "Turns your world into Lego bricks, block-accurate and tiled off!",
+            "links": [
+                {
+                    "name": "Modrinth",
+                    "url": "https://modrinth.com/resourcepack/plasticraft"
+                },
+                {
+                    "name": "Patreon",
+                    "url": "https://www.patreon.com/inferno31415/shop"
+                }
+            ],
+            "tags": [
+                "Free",
+                "Premium"
+            ]
+        },
+        {
+            "name": "MineBricks",
+            "creators": [
+                {
+                    "name": "macio6",
+                    "image": "macio6.webp",
+                    "url": "https://www.curseforge.com/members/macio6_texturepacks/"
+                }
+            ],
+            "image": "minebricks.webp",
+            "logo": "minebricks.webp",
+            "description": "MineBricks Texturepack will transform your worlds into extremely realistic, shiny, plastic bricks. For free!",
+            "links": [
+                {
+                    "name": "CurseForge",
+                    "url": "https://www.curseforge.com/minecraft/texture-packs/minebricks"
+                },
+                {
+                    "name": "Gumroad",
+                    "url": "https://minebricks.gumroad.com/"
+                }
+            ],
+            "tags": [
+                "Free",
+                "Premium"
+            ]
+        },
+        {
+            "name": "Polybrick",
+            "creators": [
+                {
+                    "name": "Designio Graphics",
+                    "image": "designio.webp",
+                    "url": "https://www.planetminecraft.com/member/designio_graphics/"
+                }
+            ],
+            "image": "polybrick.webp",
+            "logo": "polybrick.webp",
+            "description": "A simple and very elegant resource pack, which gives the game a renewed and simplistic look.",
+            "links": [
+                {
+                    "name": "Planet Minecraft",
+                    "url": "https://www.planetminecraft.com/texture-pack/polybrick-512x/"
+                }
+            ],
+            "tags": [
+                "Premium"
+            ]
+        },
+        {
+            "name": "3D Bricks",
+            "creators": [
+                {
+                    "name": "Parsa Farvadian",
+                    "image": "parsa_farvadian.webp",
+                    "url": "https://www.planetminecraft.com/member/parsa_farvadian/"
+                }
+            ],
+            "image": "3dbricks.webp",
+            "logo": "3dbricks.webp",
+            "description": "Turn your Minecraft world into a Lego-Inspired experience with custom 3D blocks and items!",
+            "links": [
+                {
+                    "name": "Planet Minecraft",
+                    "url": "https://www.planetminecraft.com/texture-pack/3dbricks-remastered-lego-inspired-3d-pack-1024x-vanilla-support/"
+                }
+            ],
+            "tags": [
+                "Premium"
+            ]
+        }
+    ]
+}

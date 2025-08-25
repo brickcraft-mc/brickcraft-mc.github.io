@@ -55,6 +55,13 @@
             ]
         },
         {
+            "name": "Nolram",
+            "role": "Community Moderator & Project Administrator",
+            "image": "nolram.webp",
+            "description": "Community moderator and supporter, helping maintain the Brickcraft community, its environment, and providing ongoing support to users.",
+            "links": []
+        },
+        {
             "name": "Mr.AAA",
             "role": "Lead Creator",
             "image": "mr.aaa.webp",
@@ -112,13 +119,6 @@
                     "url": "https://modrinth.com/user/Tec"
                 }
             ]
-        },
-        {
-            "name": "Nolram",
-            "role": "Community Moderator & Project Administrator",
-            "image": "nolram.webp",
-            "description": "Community moderator and supporter, helping maintain the Brickcraft community, its environment, and providing ongoing support to users.",
-            "links": []
         },
         {
             "name": "Bane",

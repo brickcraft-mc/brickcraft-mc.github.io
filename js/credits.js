@@ -17,7 +17,6 @@ async function loadCredits() {
                     <h2>${data.title}</h2>
                     <p class="credits-description">${data.description}</p>
                 </div>
-                <hr class="credits-divider">
                 <div class="contributors-grid">
         `;
         
