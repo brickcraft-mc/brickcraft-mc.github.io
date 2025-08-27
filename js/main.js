@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // remove .html from the URL if the domain is on github.io
+    if (window.location.href.includes('github.io') && window.location.href.includes('.html')) {
+        const newUrl = window.location.href.replace(/\.html/g, '');
+        window.history.replaceState({}, document.title, newUrl);
+    }
+
     // Mobile menu toggle
     const nav = document.querySelector('nav');
     const menuButton = document.createElement('button');

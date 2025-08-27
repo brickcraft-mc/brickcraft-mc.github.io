@@ -1,0 +1,223 @@
+{
+    "features": [
+        {
+            "name": "3D Blocks and Items",
+            "group": "Features",
+            "creators": [
+                {
+                    "name": "AlexTestria",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/alex.testria",
+                    "image": "alextestria.webp"
+                }
+            ],
+            "description": "Every block and item in the pack is 3D modeled with insane details present.\nThousands of hours have been put into making models of the highest quality.\nCan you spot the illegal building techniques?",
+            "image": "3d-blocks-and-items.webp",
+            "requirements": [
+                {
+                    "text": "Shader",
+                    "required": false
+                },
+                {
+                    "text": "Optifine or Iris+Sodium",
+                    "required": false
+                },
+                {
+                    "text": "Optimisation mods required",
+                    "required": false
+                }
+            ],
+            "buttons": []
+        },
+        {
+            "name": "Animated 3D Blocks",
+            "group": "Features",
+            "creators": [
+                {
+                    "name": "AlexTestria",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/alex.testria",
+                    "image": "alextestria.webp"
+                }
+            ],
+            "description": "From waving leaves to 3D brick fire, there is a variety of\n3D animated blocks and items in Brickcraft.\nStay subscribed to not miss out on new updates!",
+            "image": "animatedblocks.webp",
+            "requirements": [
+                {
+                    "text": "Shader",
+                    "required": false
+                },
+                {
+                    "text": "Optifine or Iris+Sodium",
+                    "required": false
+                },
+                {
+                    "text": "Optimisation mods recommended (Cull Leaves)",
+                    "required": true
+                }],
+            "buttons": []
+        },
+        {
+            "name": "LabPBR Materials",
+            "group": "Features",
+            "creators": [
+                {
+                    "name": "AlexTestria",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/alex.testria",
+                    "image": "alextestria.webp"
+                }
+            ],
+            "description": "Make it feel like real plastic! Use a LabPBR-capable shader and activate advanced\nmaterials.\nSee real metals, reflections, roughness, normal mapping, and AO!",
+            "image": "pbr.webp",
+            "requirements": [
+                {
+                    "text": "Shader",
+                    "required": true
+                },
+                {
+                    "text": "Optifine or Iris+Sodium",
+                    "required": true
+                },
+                {
+                    "text": "Optimisation mods recommended",
+                    "required": true
+                }
+            ],
+            "buttons": [
+                {
+                    "primary": false,
+                    "url": "instructions.html#shader",
+                    "text": "Learn More",
+                    "external": false
+                },
+                {
+                    "primary": true,
+                    "url": "#download",
+                    "text": "Buy Premium",
+                    "external": false
+                }
+            ]
+        },
+        {
+            "name": "Brick Sounds",
+            "group": "Features",
+            "creators": [
+                {
+                    "name": "Blockerlocker",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/Blockerlocker",
+                    "image": "blockerlocker.webp"
+                }
+            ],
+            "description": "Brick sounds for clicking buttons, stepping on grass, stone, etc., and receiving damage/fall damage.<br>These special sounds were made by Quentin aka. BlockerLocker! Huge thanks and love to him! 🤍",
+            "image": "brick-sounds.webp",
+            "requirements": [
+                {
+                    "text": "Shader",
+                    "required": false
+                },
+                {
+                    "text": "Optifine or Iris+Sodium",
+                    "required": false
+                },
+                {
+                    "text": "Optimisation mods required",
+                    "required": false
+                }
+            ],
+            "buttons": [
+                {
+                    "primary": true,
+                    "url": "https://www.youtube.com/@BlockerLockerYT",
+                    "text": "Visit Quentin's Channel",
+                    "external": true
+                }
+            ]
+        },
+        {
+            "name": "Physics Mod x Fresh Animations",
+            "group": "Supporting",
+            "creators": [
+                {
+                    "name": "Haubna",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/haubna",
+                    "image": "haubna.webp"
+                },
+                {
+                    "name": "FreshLX",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/FreshLX",
+                    "image": "freshlx.webp"
+                }
+            ],
+            "description": "Brickcraft supports two of the most famous mods out there!<br>Collapsing caves, interactive ragdolls, item physics and much more awaits you! <br>Combined with the best entity animations out there!",
+            "image": "fresh-animation.png",
+            "requirements": [
+                {
+                    "text": "Shader",
+                    "required": false
+                },
+                {
+                    "text": "Optifine or Iris+Sodium",
+                    "required": false
+                },
+                {
+                    "text": "Optimisation mods required",
+                    "required": false
+                }
+            ],
+            "buttons": [
+                {
+                    "primary": true,
+                    "url": "https://modrinth.com/mod/physicsmod",
+                    "text": "Physics Mod",
+                    "external": true
+                },
+                {
+                    "primary": true,
+                    "url": "https://modrinth.com/resourcepack/fresh-animations",
+                    "text": "Fresh Animations",
+                    "external": true
+                }
+            ]
+        },
+        {
+            "name": "Player Minifigure Models",
+            "group": "Add-Ons",
+            "creators": [
+                {
+                    "name": "FishySalmon",
+                    "role": "Creator",
+                    "url": "https://modrinth.com/user/Fishysalmon02",
+                    "image": "fishysalmon.webp"
+                }
+            ],
+            "description": "Turn your skin into your own Minifigure!<br>Fully compatible with Brickcraft!",
+            "image": "minifig-models.webp",
+            "requirements": [
+                {
+                    "text": "Shader",
+                    "required": true
+                },
+                {
+                    "text": "Optifine or Iris+Sodium",
+                    "required": true
+                },
+                {
+                    "text": "Optimisation mods required",
+                    "required": true
+                }
+            ],
+            "buttons": [
+                {
+                    "primary": true,
+                    "url": "https://modrinth.com/resourcepack/minifigure-players",
+                    "text": "Minifigure Players",
+                    "external": true
+                }
+            ]
+        }
+    ]
+}

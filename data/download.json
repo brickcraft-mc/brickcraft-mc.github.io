@@ -1,0 +1,58 @@
+{
+  "tiers": [
+    {
+      "id": "vanilla",
+      "title": "Vanilla",
+      "price": 5,
+      "currency": "€",
+      "image": "tiers/pack-vanilla.webp",
+      "description": "Working in Vanilla Minecraft without any Mods or shaders!",
+      "features": [
+        { "icon": "cube", "text": "800+ Blocks & Items" },
+        { "icon": "x-circle", "text": "No PBR Materials" },
+        { "icon": "package", "text": "Standard 3D Models" },
+        { "icon": "volume-full", "text": "Brick Sounds" },
+        { "icon": "leaf", "text": "Animated 3D Blocks" }
+      ],
+      "downloadUrl": "https://www.patreon.com/posts/brickcraft-post-135479392",
+      "buttonText": "Download Now",
+      "popular": false
+    },
+    {
+      "id": "premium",
+      "title": "Premium",
+      "price": 10,
+      "currency": "€",
+      "image": "tiers/pack-premium.webp",
+      "description": "Get the full experience with PBR Materials and 3D Models!",
+      "features": [
+        { "icon": "cube", "text": "800+ Blocks & Items" },
+        { "icon": "check", "text": "PBR Materials" },
+        { "icon": "package", "text": "Standard 3D Models" },
+        { "icon": "volume-full", "text": "Brick Sounds" },
+        { "icon": "leaf", "text": "Animated 3D Blocks" }
+      ],
+      "downloadUrl": "https://www.patreon.com/posts/brickcraft-post-135487781",
+      "buttonText": "Download Now",
+      "popular": false
+    },
+    {
+      "id": "extreme",
+      "title": "Extreme",
+      "price": 12,
+      "currency": "€",
+      "image": "tiers/pack-extreme.webp",
+      "description": "Only for absolute beast PCs and taking screenshots.",
+      "features": [
+        { "icon": "cube", "text": "800+ Blocks & Items" },
+        { "icon": "check", "text": "PBR Materials" },
+        { "icon": "package", "text": "High-Grade 3D Models" },
+        { "icon": "volume-full", "text": "Brick Sounds" },
+        { "icon": "leaf", "text": "Animated 3D Blocks" }
+      ],
+      "downloadUrl": "https://www.patreon.com/posts/brickcraft-post-135488476",
+      "buttonText": "Download Now",
+      "popular": true
+    }
+  ]
+}
