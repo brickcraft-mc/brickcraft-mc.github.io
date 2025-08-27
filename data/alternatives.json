@@ -97,6 +97,29 @@
             "tags": [
                 "Premium"
             ]
+        },
+        {
+            "name": "Brixel",
+            "creators": [
+                {
+                    "name": "wabbabrick",
+                    "image": "wabbabrick.webp",
+                    "url": "https://www.curseforge.com/members/wabbabrick"
+                }
+            ],
+            "image": "brixel.webp",
+            "logo": "brixel.webp",
+            "description": "Brixel turns Minecraft into world made of tiny bricks, similar to those that many of us remember from our childhood!",
+            "links": [
+                {
+                    "name": "CurseForge",
+                    "url": "https://www.curseforge.com/minecraft/texture-packs/brixel"
+                }
+            ],
+            "tags": [
+                "Free",
+                "Premium"
+            ]
         }
     ]
 }
