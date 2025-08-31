@@ -119,9 +119,9 @@ Because Brickcraft only uses 3D Models to achieve its look, it can lag quite a l
 > /?
 
 ?[I'm keep getting a "Resource reload failed" error]
-This errpr can result from a few different issues.
+This error can result from a few different issues.
 
-### If your version is 1.21-ish or newer:
+### If you're using Brickraft 2.6 or earlier and playing Mincraft 1.21 or newer:
 To fix this, try:
 
 1. Unzip the resource pack
@@ -129,7 +129,7 @@ To fix this, try:
 3. Rename the folder to anything else
 4. Re-zip the resource pack and try again
 
-### If you've tried the above:
+### If you've tried the above, or you are using Brickcraft 3.0 or newer:
 The texture atlas may be too large for your GPU to handle.
 This can occur on certain GPUs, and may also just appear as the above error (please check your logs).
 There's no "fix" for it, since it's a hardware limitation, however you can work around it by reducing the size of the textures in the pack.
