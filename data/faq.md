@@ -5,6 +5,12 @@
 > !warning: Some of this information is for old versions of Brickcraft, or for the old website/Patreon system. 
 > If you have any questions, please ask in the [Discord](https://Discord.gg/uBhFaBG) server!
 
+> !note: Brickcraft should work on any version of Minecraft from 1.16 and up. 
+> Right now, NO versions are feature-complete. 
+
+> !warning: Brickcraft does NOT support Bedrock Edition.
+
+
 ## Installation
 
 ?[How do I install Brickcraft?]
@@ -37,7 +43,7 @@ To update Brickcraft, simply download the new version and replace the old one in
 
 ?[Is there a free version of Brickcraft?]
 Yes, there is! There is a free demo version of Brickcraft available for download, linked on the [Downloads](/downloads.html) page.
-Everything beyond that requires a pledge on [Patreon](https://patreon.com) or a donation.
+Everything beyond that requires a pledge on [Patreon](https://www.patreon.com/alextestria).
 /?
 
 ?[Why do better versions cost money?]
@@ -45,12 +51,7 @@ A resource pack takes an incredibly amount of work, especially at 1024x texture 
 At this point in time I've spent more than 90 hours of concentrated work on Brickcraft.
 /?
 
-?[I'm a new Patron but the download page sends me back to the Patreon subscription page]
-Patreon needs some time to announce the news of your pledge to the Brickcraft website.
-After you subscribed on [Patreon](https://patreon.com), wait between 5 to 10 minutes and you should be able to download what you paid for.
-/?
-
-?[I'm a Patron but the download page tells me that my email is blocked]
+?[I'm a Patron but it says that my email is blocked]
 Patreon is blocking information requests of users who haven't verified their email address. Without your email address connected to your account the website can't tell wether you are a Patron or not.
 
 Try verifying your email address on [Patreon](https://patreon.com), if that won't help contact @AlexTestria on Patreon, [Discord](https://Discord.gg/uBhFaBG) or by email.
@@ -77,6 +78,9 @@ There are no set minimum requirements for Brickcraft, since it depends on your s
 | Vanilla | 4-core | 4GB  | DirectX 11 compatible | 1.19+             |
 | Premium | 6-core | 8GB  | RTX 2070              | 1.19+             |
 | Extreme | 6-core | 16GB | RTX 3070              | 1.19+             |
+
+Note, these are just rough estimates and your experience may vary.  
+Additionally, some graphics cards (such as those from AMD), may have issues with certain shaders or texture packs.
 /?
 
 ?[Is Brickcraft playable on Bedrock Edition?]
@@ -85,7 +89,8 @@ Bedrock edition does not support the block model modifications that Brickcraft m
 /?
 
 ?[Does Brickcraft require mods?]
-It does not require any mods in order to work properly. But with Optifine or Sodium installed alongside a proper shader, it will look a lot better.
+It does not require any mods in order to work properly.  
+However, using a performance-optimisation mod such as Sodium, alongside a proper shader, it will look and run a lot better.
 /?
 
 ?[Does Brickcraft support modded blocks?]
@@ -134,7 +139,6 @@ The texture atlas may be too large for your GPU to handle.
 This can occur on certain GPUs, and may also just appear as the above error (please check your logs).
 There's no "fix" for it, since it's a hardware limitation, however you can work around it by reducing the size of the textures in the pack.
 
-<!-- navigate to /tools/resize | drag zip | wait | move the resized zip into your folder | select the pack -->
 1. Navigate to the [Pack Resize Tool](/tools/resize.html)
 2. Drag and drop the ZIP file into the designated area
 3. Wait for the tool to resize the pack
