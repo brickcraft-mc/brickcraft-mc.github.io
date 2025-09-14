@@ -123,10 +123,10 @@ Because Brickcraft only uses 3D Models to achieve its look, it can lag quite a l
 > !warning: Check out the [Instructions](/instructions.html) page for additional tips!
 > /?
 
-?[I'm keep getting a "Resource reload failed" error]
+?[I keep getting a "Resource reload failed" error]
 This error can result from a few different issues.
 
-### If you're using Brickraft 2.6 or earlier and playing Mincraft 1.21 or newer:
+### If you're using Brickcraft 2.6 or earlier and playing Minecraft 1.21 or newer:
 To fix this, try:
 
 1. Unzip the resource pack
