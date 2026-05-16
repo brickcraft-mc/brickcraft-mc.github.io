@@ -7,7 +7,7 @@
     flex-direction: column;
     gap: var(--space-lg);
     align-items: stretch;
-    margin-bottom: var(--space-lg);
+    /* margin-bottom: var(--space-lg); */
     padding: var(--space-lg);
     background-color: var(--background-1);
     border-radius: var(--rounded-md);

@@ -241,7 +241,7 @@ class ResourcePackProcessor {
         this.log('Starting texture resize...', 'info');
         const packRoot = await this.findResourcePackRoot(zipData);
 
-        if (!packRoot) {
+        if (packRoot === null) {
             this.log('Could not find resource pack root', 'error');
             this.stats.resize.errors++;
             return;
