@@ -139,10 +139,24 @@ The texture atlas may be too large for your GPU to handle.
 This can occur on certain GPUs, and may also just appear as the above error (please check your logs).
 There's no "fix" for it, since it's a hardware limitation, however you can work around it by reducing the size of the textures in the pack.
 
-1. Navigate to the [Pack Resize Tool](/tools/resize.html)
-2. Drag and drop the ZIP file into the designated area
-3. Wait for the tool to resize the pack
-4. Download the resized ZIP file
-5. Move the resized ZIP file into your Resource Packs folder
-6. Select the resized pack in Minecraft's Resource Packs menu
+1. Go to [this webpage](/tools/fix.html)
+2. Drop your Brickcraft ZIP file onto the middle area
+3. Toggle the switch on the Resize Textures section to enable it
+3a. (Optional) Adjust the scale. 50% should cover most cases, but going lower may be necessary, at the expense of quality.
+4. Click the Start Processing button below it.
+5. Wait for it to process
+6. Download the processed pack (will have `[RESIZED]` at the start of the name)
+7. Put that pack in your Resource Packs folder and select it
+/?
+
+?[My Resource Pack isn't appearing in the list!]
+This is a common issue on 26.1 and above. To fix it, try:
+
+1. Go to [this webpage](/tools/fix.html)
+2. Drop your Brickcraft ZIP file onto the middle area
+3. Toggle the switch on the Format section to enable it
+4. Click the Start Processing button below it.
+5. Wait for it to process
+6. Download the processed pack (will have `[FIXED]` at the start of the name)
+7. Put that pack in your Resource Packs folder and select it
 /?
