@@ -2,20 +2,26 @@ class ResourcePackProcessor {
     constructor() {
         this.selectedFile = null;
         this.scalePercent = 50;
-        this.processedCount = 0;
-        this.skippedCount = 0;
-        this.errorCount = 0;
         this.outputBlob = null;
+        
+        this.enabledSections = {
+            resize: false,
+            format: false
+        };
+
+        this.stats = {
+            resize: { processed: 0, skipped: 0, errors: 0 },
+            format: { processed: 0, errors: 0 }
+        };
         
         this.initializeElements();
         this.bindEvents();
     }
 
     initializeElements() {
+        // Main containers
         this.dropzone = document.getElementById('dropzone');
         this.fileInput = document.getElementById('fileInput');
-        this.scaleSlider = document.getElementById('scaleSlider');
-        this.scaleValue = document.getElementById('scaleValue');
         this.fileStatus = document.getElementById('fileStatus');
         this.fileName = document.getElementById('fileName');
         this.clearFile = document.getElementById('clearFile');
@@ -28,6 +34,14 @@ class ResourcePackProcessor {
         this.resultStats = document.getElementById('resultStats');
         this.downloadBtn = document.getElementById('downloadBtn');
         this.resetBtn = document.getElementById('resetBtn');
+
+        // Section toggles
+        this.resizeToggle = document.getElementById('resizeToggle');
+        this.formatToggle = document.getElementById('formatToggle');
+
+        // Scale controls
+        this.scaleSlider = document.getElementById('scaleSlider');
+        this.scaleValue = document.getElementById('scaleValue');
     }
 
     bindEvents() {
@@ -35,6 +49,57 @@ class ResourcePackProcessor {
         this.scaleSlider.addEventListener('input', (e) => {
             this.scalePercent = parseInt(e.target.value);
             this.scaleValue.textContent = this.scalePercent;
+        });
+
+        // Section toggles
+        this.resizeToggle.addEventListener('change', (e) => {
+            this.enabledSections.resize = e.target.checked;
+            this.updateProcessButtonState();
+        });
+
+        this.formatToggle.addEventListener('change', (e) => {
+            this.enabledSections.format = e.target.checked;
+            this.updateProcessButtonState();
+        });
+
+        // Foldout headers
+        document.querySelectorAll('.fix-section-header').forEach(header => {
+            const toggleSection = () => {
+                const targetId = header.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const titleButton = header.querySelector('.fix-section-title');
+                if (!content || !titleButton) {
+                    return;
+                }
+
+                const isExpanded = header.getAttribute('aria-expanded') === 'true';
+                const nextExpanded = String(!isExpanded);
+
+                header.setAttribute('aria-expanded', nextExpanded);
+                titleButton.setAttribute('aria-expanded', nextExpanded);
+                content.classList.toggle('collapsed', isExpanded);
+            };
+
+            header.addEventListener('click', (event) => {
+                if (event.target.closest('.fix-toggle-switch')) {
+                    return;
+                }
+
+                toggleSection();
+            });
+
+            header.addEventListener('keydown', (event) => {
+                if (event.target.closest('.fix-toggle-switch')) {
+                    return;
+                }
+
+                if (event.key !== 'Enter' && event.key !== ' ') {
+                    return;
+                }
+
+                event.preventDefault();
+                toggleSection();
+            });
         });
 
         // File selection
@@ -91,6 +156,12 @@ class ResourcePackProcessor {
         });
     }
 
+    updateProcessButtonState() {
+        const hasFile = this.selectedFile !== null;
+        const hasSectionEnabled = this.enabledSections.resize || this.enabledSections.format;
+        this.processBtn.disabled = !(hasFile && hasSectionEnabled);
+    }
+
     handleFileSelect(file) {
         if (!file.name.toLowerCase().endsWith('.zip')) {
             this.showError('Please select a ZIP file.');
@@ -102,7 +173,7 @@ class ResourcePackProcessor {
         this.fileStatus.classList.add('visible');
         this.fileStatus.classList.remove('hidden');
         this.dropzone.style.display = 'none';
-        this.processBtn.disabled = false;
+        this.updateProcessButtonState();
     }
 
     clearSelectedFile() {
@@ -111,7 +182,7 @@ class ResourcePackProcessor {
         this.fileStatus.classList.add('hidden');
         this.dropzone.style.display = 'flex';
         this.fileInput.value = '';
-        this.processBtn.disabled = true;
+        this.updateProcessButtonState();
     }
 
     async processResourcePack() {
@@ -121,60 +192,124 @@ class ResourcePackProcessor {
         this.progressSection.classList.add('visible');
         this.progressSection.classList.remove('hidden');
         this.processLog.innerHTML = '';
-        this.resetCounters();
+        this.resetStats();
 
         try {
-            this.updateProgress(0, 'Loading ZIP file...');
-            this.log('Starting resource pack processing...', 'info');
+            const arrayBuffer = await this.selectedFile.arrayBuffer();
+            const zipData = await JSZip.loadAsync(arrayBuffer);
+            const outputZip = new JSZip();
 
-            // Load the ZIP file
-            const zip = new JSZip();
-            const zipData = await zip.loadAsync(this.selectedFile);
+            // Copy all files from input to output
+            let totalFiles = Object.keys(zipData.files).length;
+            let processedIndex = 0;
 
-            this.updateProgress(10, 'Analyzing resource pack structure...');
-            
-            // Find the resource pack structure
-            const packRoot = await this.findResourcePackRoot(zipData);
-            if (packRoot === null) {
-                throw new Error('Could not find a valid resource pack structure (assets/minecraft/textures/)');
+            for (const [fileName, file] of Object.entries(zipData.files)) {
+                processedIndex++;
+                const percent = Math.round((processedIndex / totalFiles) * 30);
+                this.updateProgress(percent, `Preparing files... ${percent}%`);
+
+                if (file.dir) {
+                    outputZip.folder(fileName);
+                } else {
+                    const content = await file.async('arraybuffer');
+                    outputZip.file(fileName, content);
+                }
             }
 
-            this.log(`Found resource pack structure at: ${packRoot}`, 'info');
-
-            // Get all PNG files in textures folder
-            const textureFiles = this.getTextureFiles(zipData, packRoot);
-            this.log(`Found ${textureFiles.length} PNG texture files`, 'info');
-
-            if (textureFiles.length === 0) {
-                throw new Error('No PNG texture files found in the resource pack');
+            // Process resize if enabled
+            if (this.enabledSections.resize) {
+                await this.processResize(zipData, outputZip);
             }
 
-            this.updateProgress(20, 'Processing texture files...');
-
-            // Process each texture file
-            let processed = 0;
-            for (const filePath of textureFiles) {
-                const progress = 20 + (processed / textureFiles.length) * 70;
-                this.updateProgress(progress, `Processing: ${this.getFileName(filePath)}`);
-
-                await this.processTextureFile(zipData, filePath);
-                processed++;
+            // Process format if enabled
+            if (this.enabledSections.format) {
+                await this.processFormat(outputZip);
             }
 
-            this.updateProgress(95, 'Creating output ZIP file...');
-            
-            // Generate the output ZIP
-            const outputBlob = await zipData.generateAsync({type: 'blob'});
-            this.outputBlob = outputBlob;
-
-            this.updateProgress(100, 'Processing complete!');
+            this.updateProgress(100, 'Finalizing...');
+            this.outputBlob = await outputZip.generateAsync({ type: 'blob' });
             this.showResults();
-
         } catch (error) {
-            this.showError(`Processing failed: ${error.message}`);
-            this.log(`ERROR: ${error.message}`, 'error');
+            console.error('Error processing pack:', error);
+            this.log(`Error: ${error.message}`, 'error');
         } finally {
             this.processBtn.disabled = false;
+        }
+    }
+
+    async processResize(zipData, outputZip) {
+        this.log('Starting texture resize...', 'info');
+        const packRoot = await this.findResourcePackRoot(zipData);
+
+        if (!packRoot) {
+            this.log('Could not find resource pack root', 'error');
+            this.stats.resize.errors++;
+            return;
+        }
+
+        const textureFiles = this.getTextureFiles(zipData, packRoot);
+        this.log(`Found ${textureFiles.length} texture files`, 'info');
+
+        let processed = 0;
+        for (const filePath of textureFiles) {
+            processed++;
+            const percent = 30 + Math.round((processed / textureFiles.length) * 60);
+            this.updateProgress(percent, `Resizing textures... ${processed}/${textureFiles.length}`);
+
+            await this.processTextureFile(zipData, filePath, outputZip);
+        }
+
+        this.log(`Resize complete: ${this.stats.resize.processed} processed, ${this.stats.resize.skipped} skipped`, 'success');
+    }
+
+    async processFormat(outputZip) {
+        this.log('Fixing pack format...', 'info');
+
+        try {
+            let packMetaFile = null;
+            for (const fileName of Object.keys(outputZip.files)) {
+                if (fileName.toLowerCase() === 'pack.mcmeta') {
+                    packMetaFile = fileName;
+                    break;
+                }
+            }
+
+            if (!packMetaFile) {
+                this.log('pack.mcmeta not found', 'warning');
+                return;
+            }
+
+            const content = await outputZip.file(packMetaFile).async('text');
+            const metadata = JSON.parse(content);
+
+            if (metadata.overlays && metadata.overlays.entries) {
+                let modified = false;
+
+                for (const entry of metadata.overlays.entries) {
+                    if (entry.formats && typeof entry.formats === 'object' && entry.formats.min_inclusive !== undefined) {
+                        // Old format: { "min_inclusive": X, "max_inclusive": Y }
+                        const minVal = entry.formats.min_inclusive;
+                        const maxVal = entry.formats.max_inclusive;
+
+                        // Convert to new format
+                        entry.formats = [minVal, maxVal];
+                        entry.min_format = minVal;
+                        entry.max_format = maxVal;
+
+                        modified = true;
+                        this.log(`Fixed format for overlay: ${entry.directory}`, 'success');
+                        this.stats.format.processed++;
+                    }
+                }
+
+                if (modified) {
+                    outputZip.file(packMetaFile, JSON.stringify(metadata, null, 4));
+                    this.log('pack.mcmeta updated successfully', 'success');
+                }
+            }
+        } catch (error) {
+            this.log(`Format fix error: ${error.message}`, 'error');
+            this.stats.format.errors++;
         }
     }
 
@@ -246,7 +381,7 @@ class ResourcePackProcessor {
         return pngFiles;
     }
 
-    async processTextureFile(zipData, filePath) {
+    async processTextureFile(zipData, filePath, outputZip) {
         try {
             const file = zipData.files[filePath];
             const fileName = this.getFileName(filePath);
@@ -254,7 +389,7 @@ class ResourcePackProcessor {
             // Skip colormap files
             if (filePath.toLowerCase().includes('/colormap/')) {
                 this.log(`SKIPPED: ${fileName} - File is in colormap folder`, 'skipped');
-                this.skippedCount++;
+                this.stats.resize.skipped++;
                 return;
             }
 
@@ -269,7 +404,7 @@ class ResourcePackProcessor {
             // Check if we should process this image
             if (!this.shouldProcessImage(width, height)) {
                 this.log(`SKIPPED: ${fileName} - ${width}x${height} - Not power of 2 and not large enough`, 'skipped');
-                this.skippedCount++;
+                this.stats.resize.skipped++;
                 return;
             }
 
@@ -280,15 +415,15 @@ class ResourcePackProcessor {
             // Process the image
             const resizedImageData = await this.resizeImage(img, newWidth, newHeight);
             
-            // Update the ZIP file with the resized image
-            zipData.file(filePath, resizedImageData);
+            // Update the output ZIP file with the resized image
+            outputZip.file(filePath, resizedImageData);
 
             this.log(`SUCCESS: ${fileName} - ${width}x${height} → ${newWidth}x${newHeight}`, 'success');
-            this.processedCount++;
+            this.stats.resize.processed++;
 
         } catch (error) {
             this.log(`ERROR: Failed to resize ${this.getFileName(filePath)} - ${error.message}`, 'error');
-            this.errorCount++;
+            this.stats.resize.errors++;
         }
     }
 
@@ -359,27 +494,42 @@ class ResourcePackProcessor {
         this.results.classList.add('visible');
         this.results.classList.remove('hidden');
 
-        const stats = [
-            { label: 'Files processed successfully', value: this.processedCount },
-            { label: 'Files skipped', value: this.skippedCount },
-            { label: 'Files with errors', value: this.errorCount },
-            { label: 'Scale percentage used', value: `${this.scalePercent}%` }
-        ];
+        let resultHTML = '';
 
-        this.resultStats.innerHTML = stats.map(stat => 
-            `<div class="stat-row">
-                <span>${stat.label}:</span>
-                <strong>${stat.value}</strong>
-            </div>`
-        ).join('');
+        if (this.enabledSections.resize) {
+            resultHTML += `
+                <div class="stat-section">
+                    <h4>Texture Resize</h4>
+                    <div class="stat-row"><span>Processed:</span> <strong>${this.stats.resize.processed}</strong></div>
+                    <div class="stat-row"><span>Skipped:</span> <strong>${this.stats.resize.skipped}</strong></div>
+                    <div class="stat-row"><span>Errors:</span> <strong>${this.stats.resize.errors}</strong></div>
+                    <div class="stat-row"><span>Scale:</span> <strong>${this.scalePercent}%</strong></div>
+                </div>
+            `;
+        }
+
+        if (this.enabledSections.format) {
+            resultHTML += `
+                <div class="stat-section">
+                    <h4>Format Fix</h4>
+                    <div class="stat-row"><span>Entries Fixed:</span> <strong>${this.stats.format.processed}</strong></div>
+                    <div class="stat-row"><span>Errors:</span> <strong>${this.stats.format.errors}</strong></div>
+                </div>
+            `;
+        }
+
+        this.resultStats.innerHTML = resultHTML;
     }
 
     downloadProcessedFile() {
         if (!this.outputBlob) return;
 
         const originalName = this.selectedFile.name.replace('.zip', '');
-        const outputName = `[RESIZED] ${originalName}.zip`;
-        
+        const features = [];
+        if (this.enabledSections.resize) features.push('RESIZED');
+        if (this.enabledSections.format) features.push('FIXED');
+        const outputName = `[${features.join('+')}] ${originalName}.zip`;
+
         const url = URL.createObjectURL(this.outputBlob);
         const a = document.createElement('a');
         a.href = url;
@@ -393,8 +543,25 @@ class ResourcePackProcessor {
     reset() {
         this.selectedFile = null;
         this.outputBlob = null;
-        this.resetCounters();
-        
+        this.resetStats();
+
+        this.resizeToggle.checked = false;
+        this.formatToggle.checked = false;
+        this.enabledSections.resize = false;
+        this.enabledSections.format = false;
+
+        // Reset foldout states
+        document.querySelectorAll('.fix-section-content').forEach(content => {
+            content.classList.add('collapsed');
+        });
+        document.querySelectorAll('.fix-section-header').forEach(header => {
+            header.setAttribute('aria-expanded', 'false');
+            const titleButton = header.querySelector('.fix-section-title');
+            if (titleButton) {
+                titleButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
         this.fileStatus.classList.remove('visible');
         this.fileStatus.classList.add('hidden');
         this.progressSection.classList.remove('visible');
@@ -402,19 +569,18 @@ class ResourcePackProcessor {
         this.results.classList.remove('visible');
         this.results.classList.add('hidden');
         this.dropzone.style.display = 'flex';
-        
+
         this.fileInput.value = '';
-        this.processBtn.disabled = true;
+        this.updateProcessButtonState();
     }
 
-    resetCounters() {
-        this.processedCount = 0;
-        this.skippedCount = 0;
-        this.errorCount = 0;
+    resetStats() {
+        this.stats.resize = { processed: 0, skipped: 0, errors: 0 };
+        this.stats.format = { processed: 0, errors: 0 };
     }
 
     showError(message) {
-        alert(message); // In a real app, you might want a better error display
+        alert(message);
     }
 }
 
