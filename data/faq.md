@@ -33,6 +33,7 @@ Make sure you've downloaded the correct version for your Minecraft version. If i
 -   Restarting Minecraft
 -   Checking if the file is properly extracted
 -   Verifying the file isn't corrupted
+-   Running the file through the [fix tool](/tools/fix.html)
 /?
 
 ?[How do I update Brickcraft?]
