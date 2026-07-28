@@ -15,6 +15,8 @@
 
     #processBtn {
         align-self: flex-start;
+        font-size: 1.2em;
+        font-weight: bold;
     }
 }
 
@@ -212,6 +214,55 @@
     display: flex;
     gap: var(--space-sm);
     flex-wrap: wrap;
+}
+
+.control-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+/* Support */
+.support {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background-color: var(--background-2);
+    color: var(--text-primary);
+    border-radius: var(--rounded-md);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .support-pills {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+
+        .support-pill {
+            padding: var(--space-xs) var(--space-sm);
+            background-color: var(--background-1);
+            border-radius: var(--rounded-full);
+            font-size: 0.875rem;
+            color: var(--background-1);
+            font-weight: bold;
+            transition: all 0.2s linear;
+
+            &.kofi {
+                color: #29abe0;
+                outline: 1px solid #29abe0;
+            }
+            &.bmac {
+                color: #FFDD00;
+                outline: 1px solid #FFDD00;
+            }
+
+            &:hover {
+                background-color: rgba(65, 93, 232, 0.1);
+                outline-width: 2px;
+            }
+        }
+    }
 }
 
 /* Main Container */
