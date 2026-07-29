@@ -45,8 +45,8 @@
                     "url": "https://modrinth.com/user/Inferno31415"
                 },
                 {
-                    "name": "Patreon",
-                    "url": "https://www.patreon.com/inferno31415"
+                    "name": "Ko-Fi",
+                    "url": "https://ko-fi.com/inferno31415"
                 },
                 {
                     "name": "YouTube",
@@ -55,23 +55,31 @@
             ]
         },
         {
+            "name": "Bane",
+            "role": "Community Developer",
+            "image": "bane.webp",
+            "description": "Developer of this website and related tools.",
+            "links": [
+                {
+                    "name": "GitHub",
+                    "url": "https://github.com/Jordy3D"
+                },
+                {
+                    "name": "Ko-fi",
+                    "url": "https://ko-fi.com/jordy3d"
+                },
+                {
+                    "name": "Buy Me a Coffee",
+                    "url": "https://www.buymeacoffee.com/jordy3d"
+                }
+            ]
+        },
+        {
             "name": "Nolram",
-            "role": "Community Moderator & Project Administrator",
+            "role": "Community Moderator",
             "image": "nolram.webp",
             "description": "Community moderator and supporter, helping maintain the Brickcraft community, its environment, and providing ongoing support to users.",
             "links": []
-        },
-        {
-            "name": "Mr.AAA",
-            "role": "Lead Creator",
-            "image": "mr.aaa.webp",
-            "description": "The current lead creator of Brickcraft, who has been working on the pack since 2025.",
-            "links": [
-                {
-                    "name": "YouTube",
-                    "url": "https://www.youtube.com/@novagraphics1281"
-                }
-            ]
         },
         {
             "name": "Blockerlocker",
@@ -86,6 +94,18 @@
                 {
                     "name": "YouTube",
                     "url": "https://www.youtube.com/@BlockerLockerYT"
+                }
+            ]
+        },
+        {
+            "name": "Mr.AAA",
+            "role": "Lead Creator",
+            "image": "mr.aaa.webp",
+            "description": "The current lead creator of Brickcraft, who has been working on the pack since 2025.",
+            "links": [
+                {
+                    "name": "YouTube",
+                    "url": "https://www.youtube.com/@novagraphics1281"
                 }
             ]
         },
@@ -117,18 +137,6 @@
                 {
                     "name": "Modrinth",
                     "url": "https://modrinth.com/user/Tec"
-                }
-            ]
-        },
-        {
-            "name": "Bane",
-            "role": "Community Developer",
-            "image": "bane.webp",
-            "description": "Developer of this website and related tools.",
-            "links": [
-                {
-                    "name": "GitHub",
-                    "url": "https://github.com/Jordy3D"
                 }
             ]
         }

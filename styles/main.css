@@ -84,6 +84,29 @@ body.dark {
     box-sizing: border-box;
 }
 
+footer li a[href^="http"] {
+    /* position: relative; */
+    display: flex;
+    flex-direction: row;
+    
+    &::after {
+        content: "";
+        /* width: .75em; */
+        /* height: .75em; */
+        height: 1em;
+        width: auto;
+        aspect-ratio: 1/1;
+        margin-left: 0.25em;
+        vertical-align: text-bottom;
+
+        background-color: currentColor;
+
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z'/%3E%3Cpath d='M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z'/%3E%3C/svg%3E") center / contain no-repeat;
+
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z'/%3E%3Cpath d='M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+}
+
 /* #region Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
@@ -278,7 +301,7 @@ footer {
     }
 
     .footer-section {
-        max-width: 120px;
+        max-width: 140px;
         /* width: 100%; */
 
         flex: 1;
